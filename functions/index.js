@@ -11,10 +11,6 @@ const updateCoords = false;
   await connectToDB()
   handler.listen(3000)
   console.log('Server en puerto 3000 OK')
-  if(cargarRegistros){
-    colegiosAutomaticCreate()
-  }
-  if(updateCoords){
-    colegiosUpdateCoords()
-  }
+  if(cargarRegistros) colegiosAutomaticCreate()
+  if(updateCoords) colegiosUpdateCoords()
 }());
