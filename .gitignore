@@ -129,5 +129,8 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-#Netlify config
+# Netlify config
 netlify.toml
+
+# vscode settings
+.vscode
