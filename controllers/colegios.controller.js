@@ -1,8 +1,8 @@
-const Colegio = require('../models/colegio.model.js')
-const { uploadImage, deleteImageCloud } = require('../utils/cloudinary.js')
-const fs = require('fs-extra')
+import Colegio from '../models/colegio.model.js'
+import { uploadImage, deleteImageCloud } from '../utils/cloudinary.js'
+import fs from 'fs-extra'
 
-const getColegio = async (req, res) => {
+export const getColegio = async (req, res) => {
   try{
     const {id} = req.params
     const colegio = await Colegio.findById(id)
@@ -19,9 +19,10 @@ const getColegio = async (req, res) => {
     })
   }
 }
-const getColegios = async (req, res) => {
+
+export const getColegios = async (req, res) => {
   try{
-    const colegios = await Colegio.find().limit(2)
+    const colegios = await Colegio.find()
     res.json(colegios)
   }
   catch(error){
@@ -31,7 +32,7 @@ const getColegios = async (req, res) => {
   }
 }
 
-const createColegio = async (req, res) => { 
+export const createColegio = async (req, res) => { 
   try{
     const {
       jurisdiccion,
@@ -79,7 +80,7 @@ const createColegio = async (req, res) => {
   }
 }
 
-const updateColegio = async (req, res) => { 
+export const updateColegio = async (req, res) => { 
   try{
     const {id} = req.params
     const colegio = await Colegio.findByIdAndUpdate(id, req.body, {new:true})
@@ -93,7 +94,7 @@ const updateColegio = async (req, res) => {
   }
 }
 
-const deleteColegio = async (req, res) => { 
+export const deleteColegio = async (req, res) => { 
   try{
     const {id} = req.params
     const colegio = await Colegio.findByIdAndDelete(id)
@@ -111,12 +112,4 @@ const deleteColegio = async (req, res) => {
       message: error.message
     })
   }
-}
-
-module.exports = { 
-  getColegio,
-  getColegios,
-  createColegio,
-  updateColegio,
-  deleteColegio  
 }

@@ -1,9 +1,9 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 
-const { MONGODB_URI } = require('../config.js')
+import { MONGODB_URI } from '../config.js'
 
 // Conexion a la base de datos de los colegios
-const connectToDB = async function (){
+export default async function connectToDB(){
   try{
     await mongoose.connect(MONGODB_URI)
     console.log('Conectado a MongoDB')
@@ -12,5 +12,3 @@ const connectToDB = async function (){
     console.log('Error de conexion a la base de datos', error)
   }
 }
-
-module.exports = connectToDB

@@ -1,29 +1,29 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 
 const colegioSchema = mongoose.Schema({
   jurisdiccion:{
     type: String,
-    trim: true
+    trim: true,
   },
   departamento:{
     type: String,
-    trim: true
+    trim: true,
   },
   nombre:{
     type: String,
-    trim: true
+    trim: true,
   },
   domicilio:{
     type: String,
-    trim: true
+    trim: true,
   },
   telefono:{
     type: String,
-    trim: true
+    trim: true,
   },
   mail:{
     type: String,
-    trim: true
+    trim: true,
   },
   descripcion:{
     type: String,
@@ -31,7 +31,7 @@ const colegioSchema = mongoose.Schema({
   },
   tipo:{
     type: String,
-    trim: true
+    trim: true,
   },
   imagen:{
     public_id: String,
@@ -45,9 +45,13 @@ const colegioSchema = mongoose.Schema({
   },
   idiomas:{
     type: [String]
+  },
+  coordenadas:{
+    latitud: Number,
+    longitud: Number
   }
 },{
   timestamps: true
 })
 
-module.exports = mongoose.model('Colegio', colegioSchema)
+export default mongoose.model('Colegio', colegioSchema)

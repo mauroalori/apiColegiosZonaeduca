@@ -1,12 +1,12 @@
-const { Router } = require('express')
-const {
+import { Router } from 'express'
+import{
   getColegios,
   getColegio,
   createColegio,
   updateColegio,
   deleteColegio
-} =  require('../controllers/colegios.controller.js')
-const fileUpload = require('express-fileupload')
+} from '../controllers/colegios.controller.js'
+import fileUpload from 'express-fileupload'
 
 const router = Router()
 
@@ -24,4 +24,4 @@ router.put('/colegios/:id', updateColegio)
 
 router.delete('/colegios/:id', deleteColegio)
 
-module.exports = router
+export default router
