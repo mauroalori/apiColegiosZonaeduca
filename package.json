@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "netlify deploy --prod"
+    "build": "netlify deploy --prod",
+    "start": "npm run start"
   },
   "description": "",
   "keywords": [],
